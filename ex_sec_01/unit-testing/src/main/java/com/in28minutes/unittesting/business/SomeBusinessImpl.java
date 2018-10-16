@@ -5,7 +5,7 @@ import com.in28minutes.unittesting.data.SomeDataService;
 public class SomeBusinessImpl {
 
 	private SomeDataService someDataService;
-	
+
 	public void setSomeDataService(SomeDataService someDataService) {
 		this.someDataService = someDataService;
 	}
@@ -26,5 +26,5 @@ public class SomeBusinessImpl {
 		}
 		return sum;
 	}
-	
+
 }
