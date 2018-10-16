@@ -10,9 +10,9 @@ class SomeDataServiceStub implements SomeDataService {
 
 	@Override
 	public int[] retrieveAllData() {
-		return new int[] {1,2,3};
+		return new int[] { 1, 2, 3 };
 	}
-	
+
 }
 
 public class SomeBusinessImplStubTest {
@@ -21,7 +21,7 @@ public class SomeBusinessImplStubTest {
 	public void calculateSumUsingDataService_basic() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
 		business.setSomeDataService(new SomeDataServiceStub());
-		int actualResult = business.calculateSum(new int[] { 1, 2, 3 });
+		int actualResult = business.calculateSumUsingDataService();
 		int expectedResult = 6;
 		assertEquals(expectedResult, actualResult);
 	}
