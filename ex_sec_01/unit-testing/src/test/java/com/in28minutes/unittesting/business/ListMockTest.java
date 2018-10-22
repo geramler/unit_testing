@@ -6,10 +6,12 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.atMost;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -89,4 +91,23 @@ public class ListMockTest {
 		assertEquals("Something2", allValues.get(1));
 	}
 
+	@Test
+	public void spying() {
+		ArrayList<String> arrayListSpy = spy(ArrayList.class);
+		arrayListSpy.add("Test0");
+		System.out.println(arrayListSpy.get(0)); //Test0 
+		System.out.println(arrayListSpy.size()); //1
+		arrayListSpy.add("Test");
+		arrayListSpy.add("Test2");
+		System.out.println(arrayListSpy.size()); //3
+		
+		when(arrayListSpy.size()).thenReturn(5);
+		System.out.println(arrayListSpy.size()); //5
+		
+		arrayListSpy.add("Test4");
+		System.out.println(arrayListSpy.size()); //5
+		
+		verify(arrayListSpy).add("Test4");
+	}
+	
 }
