@@ -95,19 +95,19 @@ public class ListMockTest {
 	public void spying() {
 		ArrayList<String> arrayListSpy = spy(ArrayList.class);
 		arrayListSpy.add("Test0");
-		System.out.println(arrayListSpy.get(0)); //Test0 
-		System.out.println(arrayListSpy.size()); //1
+		System.out.println(arrayListSpy.get(0)); // Test0
+		System.out.println(arrayListSpy.size()); // 1
 		arrayListSpy.add("Test");
 		arrayListSpy.add("Test2");
-		System.out.println(arrayListSpy.size()); //3
-		
+		System.out.println(arrayListSpy.size()); // 3
+
 		when(arrayListSpy.size()).thenReturn(5);
-		System.out.println(arrayListSpy.size()); //5
-		
+		System.out.println(arrayListSpy.size()); // 5
+
 		arrayListSpy.add("Test4");
-		System.out.println(arrayListSpy.size()); //5
-		
+		System.out.println(arrayListSpy.size()); // 5
+
 		verify(arrayListSpy).add("Test4");
 	}
-	
+
 }
