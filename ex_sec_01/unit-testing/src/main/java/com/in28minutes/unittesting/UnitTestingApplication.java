@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class UnitTestingApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(UnitTestingApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(UnitTestingApplication.class, args);
+    }
 }
