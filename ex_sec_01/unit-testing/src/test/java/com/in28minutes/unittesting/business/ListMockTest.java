@@ -13,12 +13,12 @@ import static org.mockito.Mockito.when;
 import java.util.List;
 
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
 public class ListMockTest {
 
-	@SuppressWarnings("rawtypes")
-	List mock = Mockito.mock(List.class);
+	List<String> mock = Mockito.mock(List.class);
 
 	@Test
 	public void size_basic() {
@@ -46,13 +46,13 @@ public class ListMockTest {
 		assertEquals("in28Minutes", mock.get(0));
 		assertEquals("in28Minutes", mock.get(1));
 	}
-	
+
 	@Test
 	public void verificationBasics() {
 		// SUT
 		mock.get(0);
 		mock.get(1);
-		
+
 		// Verify
 		verify(mock).get(0);
 		verify(mock, times(2)).get(anyInt());
@@ -60,6 +60,18 @@ public class ListMockTest {
 		verify(mock, atLeastOnce()).get(anyInt());
 		verify(mock, atMost(2)).get(anyInt());
 		verify(mock, never()).get(2);
+	}
+
+	@Test
+	public void argumentCapturing() {
+		// SUT
+		mock.add("Something");
+
+		// Verification
+		ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+		verify(mock).add(captor.capture());
+
+		assertEquals("Something", captor.getValue());
 	}
 
 }
