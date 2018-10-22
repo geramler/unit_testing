@@ -22,7 +22,7 @@ public class HelloWorldControllerTest {
 
     @Test
     public void HelloWorld_basic() throws Exception {
-        RequestBuilder request = MockMvcRequestBuilders.get("hello-world").accept(MediaType.APPLICATION_JSON);
+        RequestBuilder request = MockMvcRequestBuilders.get("/hello-world").accept(MediaType.APPLICATION_JSON);
         MvcResult mvcResult = mockMvc.perform(request).andReturn();
         assertEquals("Hello World", mvcResult.getResponse().getContentAsString());
     }
